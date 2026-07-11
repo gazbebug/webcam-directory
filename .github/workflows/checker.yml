@@ -1,0 +1,21 @@
+name: Webcam Health Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Adds a button to run it manually
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Grab the repository files
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Run the link checker
+        run: python check.py
