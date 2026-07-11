@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Webcams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f1f1f1;
+        }
+        #webcam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .webcam-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Forces a perfect 16:9 video ratio */
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .info {
+            padding: 15px;
+        }
+        .info h3 {
+            margin: 0 0 5px 0;
+            font-size: 1.2em;
+        }
+        .info p {
+            margin: 0;
+            color: #aaaaaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Live Windows to the World</h1>
+    
+    <!-- This empty grid is where our JavaScript will inject the videos -->
+    <div id="webcam-grid"></div>
+
+    <script>
+        // 1. Tell the website to read your database file
+        fetch('webcams.json')
+            .then(response => response.json())
+            .then(data => {
+                const grid = document.getElementById('webcam-grid');
+                
+                // 2. Loop through every webcam in your list
+                data.forEach(cam => {
+                    const card = document.createElement('div');
+                    card.className = 'webcam-card';
+                    
+                    // 3. Build the YouTube player using the ID from your JSON
+                    card.innerHTML = `
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/${cam.youtubeId}?mute=1" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="info">
+                            <h3>${cam.title}</h3>
+                            <p>${cam.location}</p>
+                        </div>
+                    `;
+                    
+                    // 4. Put it on the screen
+                    grid.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error loading webcams:', error));
+    </script>
+</body>
+</html>
