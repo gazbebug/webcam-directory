@@ -1,12 +1,152 @@
 [
   {
-    "title": "New Orleans Street View",
-    "youtubeId": "Ksrleaxxxhw",
-    "location": "New Orleans, USA"
+    "title": "Times Square Live",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "New York City, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Streets",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/times_square"
   },
   {
-    "title": "Dublin City Center",
-    "youtubeId": "3nyPER2kzqk",
-    "location": "Dublin, Ireland"
+    "title": "Abbey Road Crossing",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "London, UK",
+    "country": "UK",
+    "continent": "Europe",
+    "category": "Streets",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/abbey_road"
+  },
+  {
+    "title": "Shibuya Crossing",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Tokyo, Japan",
+    "country": "Japan",
+    "continent": "Asia",
+    "category": "Streets",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/shibuya"
+  },
+  {
+    "title": "Temple Bar",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Dublin, Ireland",
+    "country": "Ireland",
+    "continent": "Europe",
+    "category": "Streets",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/temple_bar"
+  },
+  {
+    "title": "Jackson Hole Town Square",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Wyoming, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Streets",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/jackson_hole"
+  },
+  {
+    "title": "Venice Grand Canal",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Venice, Italy",
+    "country": "Italy",
+    "continent": "Europe",
+    "category": "Landmarks",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/venice_canal"
+  },
+  {
+    "title": "Sydney Harbour Bridge",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Sydney, Australia",
+    "country": "Australia",
+    "continent": "Australia",
+    "category": "Landmarks",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/sydney_harbour"
+  },
+  {
+    "title": "ISS Earth Viewing",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Low Earth Orbit",
+    "country": "Space",
+    "continent": "Space",
+    "category": "Landmarks",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/kennedy_space_center"
+  },
+  {
+    "title": "Brooks Falls Brown Bears",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Alaska, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Animals",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/katmai"
+  },
+  {
+    "title": "Namiri Plains Waterhole",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Serengeti, Tanzania",
+    "country": "Tanzania",
+    "continent": "Africa",
+    "category": "Animals",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/serengeti"
+  },
+  {
+    "title": "Kitten Rescue Sanctuary",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Los Angeles, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Animals",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/la"
+  },
+  {
+    "title": "Waikiki Beach",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Hawaii, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Beaches",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/waikiki"
+  },
+  {
+    "title": "Copacabana Beach",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Rio de Janeiro, Brazil",
+    "country": "Brazil",
+    "continent": "South America",
+    "category": "Beaches",
+    "isFeatured": true,
+    "streetViewUrl": "https://maps.app.goo.gl/copacabana"
+  },
+  {
+    "title": "Sotavento Beach Surfing",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Fuerteventura, Spain",
+    "country": "Spain",
+    "continent": "Europe",
+    "category": "Beaches",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/sotavento"
+  },
+  {
+    "title": "Banzai Pipeline",
+    "youtubeId": "YOUR_ID_HERE",
+    "location": "Oahu, Hawaii",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Beaches",
+    "isFeatured": false,
+    "streetViewUrl": "https://maps.app.goo.gl/pipeline"
   }
 ]
