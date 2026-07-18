@@ -7,7 +7,7 @@
     "continent": "North America",
     "category": "Streets",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/times_square"
   },
   {
@@ -18,7 +18,7 @@
     "continent": "Europe",
     "category": "Streets",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/abbey_road"
   },
   {
@@ -29,7 +29,7 @@
     "continent": "Asia",
     "category": "Streets",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/shibuya"
   },
   {
@@ -40,7 +40,7 @@
     "continent": "Europe",
     "category": "Streets",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/temple_bar"
   },
   {
@@ -51,7 +51,7 @@
     "continent": "North America",
     "category": "Streets",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/jackson_hole"
   },
   {
@@ -62,7 +62,7 @@
     "continent": "Europe",
     "category": "Landmarks",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/venice_canal"
   },
   {
@@ -73,7 +73,7 @@
     "continent": "Australia",
     "category": "Landmarks",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/sydney_harbour"
   },
   {
@@ -84,7 +84,7 @@
     "continent": "Space",
     "category": "Landmarks",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/kennedy_space_center"
   },
   {
@@ -95,7 +95,7 @@
     "continent": "North America",
     "category": "Animals",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/katmai"
   },
   {
@@ -106,7 +106,7 @@
     "continent": "Africa",
     "category": "Animals",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/serengeti"
   },
   {
@@ -117,7 +117,7 @@
     "continent": "North America",
     "category": "Animals",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/la"
   },
   {
@@ -128,7 +128,7 @@
     "continent": "North America",
     "category": "Beaches",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/waikiki"
   },
   {
@@ -139,7 +139,7 @@
     "continent": "South America",
     "category": "Beaches",
     "isFeatured": true,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/copacabana"
   },
   {
@@ -150,7 +150,7 @@
     "continent": "Europe",
     "category": "Beaches",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/sotavento"
   },
   {
@@ -161,7 +161,7 @@
     "continent": "North America",
     "category": "Beaches",
     "isFeatured": false,
-    "status": "online",
+    "status": "offline",
     "streetViewUrl": "https://maps.app.goo.gl/pipeline"
   }
 ]
