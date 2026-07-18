@@ -12,7 +12,6 @@
   },
   {
     "title": "Abbey Road Crossing",
-    "channelId": "UChiT20A0w4D9g_qWq0Z0O0g",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "London, UK",
     "country": "UK",
@@ -24,7 +23,6 @@
   },
   {
     "title": "Shibuya Crossing",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Tokyo, Japan",
     "country": "Japan",
@@ -36,7 +34,6 @@
   },
   {
     "title": "Temple Bar",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Dublin, Ireland",
     "country": "Ireland",
@@ -48,7 +45,6 @@
   },
   {
     "title": "Jackson Hole Town Square",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Wyoming, USA",
     "country": "USA",
@@ -60,7 +56,6 @@
   },
   {
     "title": "Venice Grand Canal",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Venice, Italy",
     "country": "Italy",
@@ -72,7 +67,6 @@
   },
   {
     "title": "Sydney Harbour Bridge",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Sydney, Australia",
     "country": "Australia",
@@ -106,7 +100,6 @@
   },
   {
     "title": "Namiri Plains Waterhole",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Serengeti, Tanzania",
     "country": "Tanzania",
@@ -118,7 +111,6 @@
   },
   {
     "title": "Kitten Rescue Sanctuary",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Los Angeles, USA",
     "country": "USA",
@@ -130,7 +122,6 @@
   },
   {
     "title": "Waikiki Beach",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Hawaii, USA",
     "country": "USA",
@@ -142,7 +133,6 @@
   },
   {
     "title": "Copacabana Beach",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Rio de Janeiro, Brazil",
     "country": "Brazil",
@@ -154,7 +144,6 @@
   },
   {
     "title": "Sotavento Beach Surfing",
-    "channelId": "UC37XU065K8JXX9kH_oP8kDQ",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Fuerteventura, Spain",
     "country": "Spain",
@@ -166,7 +155,6 @@
   },
   {
     "title": "Banzai Pipeline",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
     "youtubeId": "ROBOT_WILL_REPLACE_THIS",
     "location": "Oahu, Hawaii",
     "country": "USA",
@@ -175,194 +163,5 @@
     "isFeatured": false,
     "status": "online",
     "streetViewUrl": "https://maps.app.goo.gl/pipeline"
-  }
-][
-  {
-    "title": "Times Square Live",
-    "channelId": "UCe2410m3lJ6i94FvG138j9w",
-    "location": "New York City, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Streets",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/times_square"
-  },
-  {
-    "title": "Abbey Road Crossing",
-    "channelId": "UChiT20A0w4D9g_qWq0Z0O0g",
-    "location": "London, UK",
-    "country": "UK",
-    "continent": "Europe",
-    "category": "Streets",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/abbey_road"
-  },
-  {
-    "title": "Shibuya Crossing",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Tokyo, Japan",
-    "country": "Japan",
-    "continent": "Asia",
-    "category": "Streets",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/shibuya"
-  },
-  {
-    "title": "Temple Bar",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Dublin, Ireland",
-    "country": "Ireland",
-    "continent": "Europe",
-    "category": "Streets",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/temple_bar"
-  },
-  {
-    "title": "Jackson Hole Town Square",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Wyoming, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Streets",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/jackson_hole"
-  },
-  {
-    "title": "Venice Grand Canal",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Venice, Italy",
-    "country": "Italy",
-    "continent": "Europe",
-    "category": "Landmarks",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/venice_canal"
-  },
-  {
-    "title": "Sydney Harbour Bridge",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Sydney, Australia",
-    "country": "Australia",
-    "continent": "Australia",
-    "category": "Landmarks",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/sydney_harbour"
-  },
-  {
-    "title": "ISS Earth Viewing",
-    "channelId": "UCLA_DiR1FfKNvjuUpBHmylQ",
-    "location": "Low Earth Orbit",
-    "country": "Space",
-    "continent": "Space",
-    "category": "Landmarks",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/kennedy_space_center"
-  },
-  {
-    "title": "Brooks Falls Brown Bears",
-    "channelId": "UC16niRr50-MSBwiO3YDb3RA",
-    "location": "Alaska, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Animals",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/katmai"
-  },
-  {
-    "title": "Namiri Plains Waterhole",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Serengeti, Tanzania",
-    "country": "Tanzania",
-    "continent": "Africa",
-    "category": "Animals",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/serengeti"
-  },
-  {
-    "title": "Kitten Rescue Sanctuary",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Los Angeles, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Animals",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/la"
-  },
-  {
-    "title": "Waikiki Beach",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Hawaii, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Beaches",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/waikiki"
-  },
-  {
-    "title": "Copacabana Beach",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Rio de Janeiro, Brazil",
-    "country": "Brazil",
-    "continent": "South America",
-    "category": "Beaches",
-    "isFeatured": true,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/copacabana"
-  },
-  {
-    "title": "Sotavento Beach Surfing",
-    "channelId": "UC37XU065K8JXX9kH_oP8kDQ",
-    "location": "Fuerteventura, Spain",
-    "country": "Spain",
-    "continent": "Europe",
-    "category": "Beaches",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/sotavento"
-  },
-  {
-    "title": "Banzai Pipeline",
-    "channelId": "YOUR_CHANNEL_ID_HERE",
-    "location": "Oahu, Hawaii",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Beaches",
-    "isFeatured": false,
-    "status": "online",
-    "streetViewUrl": "https://maps.app.goo.gl/pipeline"
-  }
-]
-
-[
-  {
-    "title": "ISS Earth Viewing",
-    "youtubeId": "xRPjKQtRXR8",
-    "location": "Low Earth Orbit",
-    "country": "Space",
-    "continent": "Space",
-    "category": "Landmarks",
-    "isFeatured": true,
-    "status": "online"
-  },
-  {
-    "title": "Times Square Live",
-    "youtubeId": "INSERT_11_LETTER_ID_HERE",
-    "location": "New York City, USA",
-    "country": "USA",
-    "continent": "North America",
-    "category": "Streets",
-    "isFeatured": true,
-    "status": "online"
   }
 ]
