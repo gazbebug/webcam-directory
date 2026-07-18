@@ -165,3 +165,26 @@
     "streetViewUrl": "https://maps.app.goo.gl/pipeline"
   }
 ]
+
+[
+  {
+    "title": "ISS Earth Viewing",
+    "youtubeId": "xRPjKQtRXR8",
+    "location": "Low Earth Orbit",
+    "country": "Space",
+    "continent": "Space",
+    "category": "Landmarks",
+    "isFeatured": true,
+    "status": "online"
+  },
+  {
+    "title": "Times Square Live",
+    "youtubeId": "INSERT_11_LETTER_ID_HERE",
+    "location": "New York City, USA",
+    "country": "USA",
+    "continent": "North America",
+    "category": "Streets",
+    "isFeatured": true,
+    "status": "online"
+  }
+]
