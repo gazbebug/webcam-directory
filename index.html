@@ -28,12 +28,12 @@
     <h1>Live Windows to the World</h1>
     
     <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCams('Featured')">Featured</button>
-        <button class="filter-btn" onclick="filterCams('All')">All</button>
-        <button class="filter-btn" onclick="filterCams('Europe')">Europe</button>
-        <button class="filter-btn" onclick="filterCams('North America')">North America</button>
-        <button class="filter-btn" onclick="filterCams('Streets')">Streets</button>
-        <button class="filter-btn" onclick="filterCams('Beaches')">Beaches</button>
+        <button class="filter-btn active" onclick="filterCams('Featured', this)">Featured</button>
+        <button class="filter-btn" onclick="filterCams('All', this)">All</button>
+        <button class="filter-btn" onclick="filterCams('Europe', this)">Europe</button>
+        <button class="filter-btn" onclick="filterCams('North America', this)">North America</button>
+        <button class="filter-btn" onclick="filterCams('Streets', this)">Streets</button>
+        <button class="filter-btn" onclick="filterCams('Beaches', this)">Beaches</button>
     </div>
     
     <div id="webcam-grid"></div>
@@ -41,18 +41,20 @@
     <script>
         let allWebcams = [];
 
-        // Fetching the database with a cache-buster timestamp
+        // Fetching the database with a cache-buster
         fetch('webcams.json?v=' + new Date().getTime())
             .then(response => response.json())
             .then(data => {
                 allWebcams = data;
                 filterCams('Featured'); 
-            });
+            })
+            .catch(error => console.error('Error loading JSON:', error));
 
-       function filterCams(filterType) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
+        function filterCams(filterType, clickedButton = null) {
+            // Manage active button styles
+            if (clickedButton) {
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                clickedButton.classList.add('active');
             }
 
             const grid = document.getElementById('webcam-grid');
@@ -70,10 +72,11 @@
             }
 
             filteredData.forEach(cam => {
-                // Self-Healing Rule
-                if (cam.status === 'offline') return;
+                // Skip this camera if it is offline OR if the youtubeId is missing/invalid
+                if (cam.status === 'offline' || !cam.youtubeId || cam.youtubeId === 'ROBOT_WILL_REPLACE_THIS') {
+                    return; 
+                }
 
-                // We are ONLY using the 11-character youtubeId now. 
                 const videoUrl = `https://www.youtube.com/embed/${cam.youtubeId}?autoplay=1&mute=1`;
 
                 const card = document.createElement('div');
@@ -90,30 +93,6 @@
                             <span class="tag">${cam.continent || 'Global'}</span>
                         </div>
                         <a href="${cam.streetViewUrl || '#'}" target="_blank" class="premium-btn">🗺️ Street View</a>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-                // Choose the most stable link layout available
-                const videoUrl = cam.channelId 
-                    ? `https://www.youtube.com/embed/live_stream?channel=${cam.channelId}&mute=1`
-                    : `https://www.youtube.com/embed/${cam.youtubeId}?mute=1`;
-
-                const card = document.createElement('div');
-                card.className = 'webcam-card';
-                card.innerHTML = `
-                    <div class="video-container">
-                        <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="info">
-                        <h3>${cam.title}</h3>
-                        <p>${cam.location}</p>
-                        <div class="tags">
-                            <span class="tag">${cam.category}</span>
-                            <span class="tag">${cam.continent || 'Global'}</span>
-                        </div>
-                        <a href="${cam.streetViewUrl || '#'}" target="_blank" class="premium-btn">🗺️ Street View (Premium)</a>
                     </div>
                 `;
                 grid.appendChild(card);
