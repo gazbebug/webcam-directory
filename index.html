@@ -2,102 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Webcams</title>
     <style>
-        body { font-family: Arial, sans-serif; background-color: #121212; color: #ffffff; margin: 0; padding: 20px; }
-        h1 { text-align: center; margin-bottom: 10px; color: #f1f1f1; }
-        .filter-bar { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .filter-btn { background-color: #2a2a2a; color: white; border: 2px solid #3a3a3a; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9em; transition: 0.2s; }
-        .filter-btn:hover, .filter-btn.active { background-color: #007bff; border-color: #007bff; }
-        #webcam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .webcam-card { background-color: #1e1e1e; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: flex; flex-direction: column; }
+        body { background-color: #121212; color: #ffffff; padding: 20px; }
+        #webcam-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .webcam-card { background-color: #1e1e1e; padding: 10px; border-radius: 10px; }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .info { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
-        .info h3 { margin: 0 0 5px 0; font-size: 1.2em; }
-        .info p { margin: 0 0 10px 0; color: #aaaaaa; font-size: 0.9em; }
-        .tags { margin-bottom: 15px; }
-        .tag { display: inline-block; background-color: #333; color: #ccc; font-size: 0.75em; padding: 4px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; }
-        .premium-btn { display: block; text-align: center; background: linear-gradient(45deg, #d4af37, #f3e5ab); color: #111; text-decoration: none; font-weight: bold; padding: 10px; border-radius: 5px; margin-top: auto; transition: opacity 0.2s; }
-        .premium-btn:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <h1>Live Windows to the World</h1>
-    
-    <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCams('Featured', this)">Featured</button>
-        <button class="filter-btn" onclick="filterCams('All', this)">All</button>
-        <button class="filter-btn" onclick="filterCams('Europe', this)">Europe</button>
-        <button class="filter-btn" onclick="filterCams('North America', this)">North America</button>
-        <button class="filter-btn" onclick="filterCams('Streets', this)">Streets</button>
-        <button class="filter-btn" onclick="filterCams('Beaches', this)">Beaches</button>
-    </div>
-    
+    <h1>Live Webcams</h1>
     <div id="webcam-grid"></div>
 
     <script>
-        let allWebcams = [];
-
-        // Fetching the database with a cache-buster
+        // Force the browser to grab the latest file with a cache buster
         fetch('webcams.json?v=' + new Date().getTime())
-            .then(response => response.json())
-            .then(data => {
-                allWebcams = data;
-                filterCams('Featured'); 
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json();
             })
-            .catch(error => console.error('Error loading JSON:', error));
+            .then(data => {
+                console.log("JSON Loaded successfully:", data);
+                const grid = document.getElementById('webcam-grid');
+                grid.innerHTML = ''; 
 
-        function filterCams(filterType, clickedButton = null) {
-            // Manage active button styles
-            if (clickedButton) {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                clickedButton.classList.add('active');
-            }
+                data.forEach(cam => {
+                    console.log("Building card for:", cam.title);
+                    
+                    // If no youtubeId, just skip to avoid empty iframes
+                    if (!cam.youtubeId || cam.youtubeId === 'ROBOT_WILL_REPLACE_THIS') {
+                        console.warn("Skipping camera due to invalid ID:", cam.title);
+                        return;
+                    }
 
-            const grid = document.getElementById('webcam-grid');
-            grid.innerHTML = ''; 
-
-            let filteredData = allWebcams;
-            if (filterType === 'Featured') {
-                filteredData = allWebcams.filter(cam => cam.isFeatured === true);
-            } else if (filterType !== 'All') {
-                filteredData = allWebcams.filter(cam => 
-                    cam.category === filterType || 
-                    cam.country === filterType || 
-                    cam.continent === filterType
-                );
-            }
-
-            filteredData.forEach(cam => {
-                // Skip this camera if it is offline OR if the youtubeId is missing/invalid
-                if (cam.status === 'offline' || !cam.youtubeId || cam.youtubeId === 'ROBOT_WILL_REPLACE_THIS') {
-                    return; 
-                }
-
-                const videoUrl = `https://www.youtube.com/embed/${cam.youtubeId}?autoplay=1&mute=1`;
-
-                const card = document.createElement('div');
-                card.className = 'webcam-card';
-                card.innerHTML = `
-                    <div class="video-container">
-                        <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="info">
-                        <h3>${cam.title}</h3>
-                        <p>${cam.location}</p>
-                        <div class="tags">
-                            <span class="tag">${cam.category}</span>
-                            <span class="tag">${cam.continent || 'Global'}</span>
+                    const card = document.createElement('div');
+                    card.className = 'webcam-card';
+                    card.innerHTML = `
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/${cam.youtubeId}?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
                         </div>
-                        <a href="${cam.streetViewUrl || '#'}" target="_blank" class="premium-btn">🗺️ Street View</a>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+                        <h3>${cam.title}</h3>
+                    `;
+                    grid.appendChild(card);
+                });
+            })
+            .catch(error => console.error('BIG ERROR LOADING JSON:', error));
     </script>
 </body>
 </html>
