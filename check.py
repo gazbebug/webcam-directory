@@ -1,37 +1,54 @@
 import json
 import urllib.request
-import urllib.error
+import re
 
-print("Starting Webcam Health Check...\n")
+print("Starting Self-Healing & Hunter Script...\n")
 
-# 1. Open and read your database
-with open('webcams.json', 'r') as file:
+with open('webcams.json', 'r+') as file:
     webcams = json.load(file)
-
-broken_cams = 0
-
-# 2. Loop through every camera
-for cam in webcams:
-    title = cam.get('title', 'Unknown Camera')
     
-    # Check if it has a channelId
-    if 'channelId' in cam:
-        url = f"https://www.youtube.com/channel/{cam['channelId']}/live"
-        
-        try:
-            # Pretend to be a normal web browser knocking on the door
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            response = urllib.request.urlopen(req)
-            print(f"✅ [ONLINE] {title}")
-            
-        except urllib.error.URLError as e:
-            print(f"❌ [OFFLINE] {title} - {e.reason}")
-            broken_cams += 1
-    else:
-        print(f"⚠️ [SKIPPED] {title} (No Channel ID provided)")
+    for cam in webcams:
+        # 1. THE HUNTER: If there is a channel ID, hunt for the newest video ID
+        if cam.get('channelId'):
+            url = f"https://www.youtube.com/channel/{cam['channelId']}/live"
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                response = urllib.request.urlopen(req, timeout=10)
+                html = response.read().decode('utf-8')
+                
+                # Dig through the page code to find the new 11-letter ID
+                match = re.search(r'rel="canonical" href="https://www.youtube.com/watch\?v=(.{11})"', html)
+                if match:
+                    new_id = match.group(1)
+                    cam['youtubeId'] = new_id  # Automatically updates the ID!
+                    cam['status'] = 'online'
+                    print(f"✅ [HUNTED] {cam['title']} -> Found new ID: {new_id}")
+                else:
+                    cam['status'] = 'offline'
+                    print(f"⚠️ [OFFLINE] {cam['title']} -> Channel is not currently live")
+            except:
+                cam['status'] = 'offline'
+                print(f"❌ [ERROR] {cam['title']} -> Could not reach channel")
+                
+        # 2. MEGA-NETWORKS: If there is no channelId, just test the existing video ID
+        elif cam.get('youtubeId'):
+            url = f"https://www.youtube.com/watch?v={cam['youtubeId']}"
+            try:
+                req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                response = urllib.request.urlopen(req, timeout=10)
+                html = response.read().decode('utf-8')
+                
+                # YouTube returns a page even if the video is dead, so we check for error text
+                if 'Video unavailable' in html or 'This live event has ended' in html:
+                     cam['status'] = 'offline'
+                     print(f"⚠️ [OFFLINE] {cam['title']} -> Video stream ended")
+                else:
+                     cam['status'] = 'online'
+                     print(f"✅ [CHECKED] {cam['title']} -> Stream is still active")
+            except:
+                cam['status'] = 'offline'
 
-print("\n--- Health Check Complete ---")
-if broken_cams > 0:
-    print(f"Warning: {broken_cams} camera(s) appear to be offline.")
-else:
-    print("All cameras are online and healthy!")
+    # Save all the new IDs back to the database
+    file.seek(0)
+    json.dump(webcams, file, indent=2)
+    file.truncate()
