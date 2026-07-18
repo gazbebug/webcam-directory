@@ -49,8 +49,7 @@
                 filterCams('Featured'); 
             });
 
-        function filterCams(filterType) {
-            // Manage active button styles
+       function filterCams(filterType) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             if (event && event.currentTarget) {
                 event.currentTarget.classList.add('active');
@@ -71,11 +70,31 @@
             }
 
             filteredData.forEach(cam => {
-                // THE SELF-HEALING RULE: If the python script marked this offline, don't show it on the site
-                if (cam.status === 'offline') {
-                    return;
-                }
+                // Self-Healing Rule
+                if (cam.status === 'offline') return;
 
+                // We are ONLY using the 11-character youtubeId now. 
+                const videoUrl = `https://www.youtube.com/embed/${cam.youtubeId}?autoplay=1&mute=1`;
+
+                const card = document.createElement('div');
+                card.className = 'webcam-card';
+                card.innerHTML = `
+                    <div class="video-container">
+                        <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="info">
+                        <h3>${cam.title}</h3>
+                        <p>${cam.location}</p>
+                        <div class="tags">
+                            <span class="tag">${cam.category}</span>
+                            <span class="tag">${cam.continent || 'Global'}</span>
+                        </div>
+                        <a href="${cam.streetViewUrl || '#'}" target="_blank" class="premium-btn">🗺️ Street View</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
                 // Choose the most stable link layout available
                 const videoUrl = cam.channelId 
                     ? `https://www.youtube.com/embed/live_stream?channel=${cam.channelId}&mute=1`
